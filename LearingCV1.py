@@ -47,28 +47,28 @@ import numpy as np
 # and return an int of it as demonstrated
 
 # the video
-# def rescaleframe(frame, scale=0.55):
-#     width = int (frame.shape[1] * scale)
-#     height = int (frame.shape[0] * scale)
-#     dimensions = (width, height)
+def rescaleframe(frame, scale=0.55):
+    width = int (frame.shape[1] * scale)
+    height = int (frame.shape[0] * scale)
+    dimensions = (width, height)
+
+    return cv.resize(frame, dimensions, interpolation=cv.INTER_AREA)
 #
-#     return cv.resize(frame, dimensions, interpolation=cv.INTER_AREA)
-#
-# capture = cv.VideoCapture("other_videos/cat_human_short.mp4")
-#
-# while True:
-#     isTrue, frame = capture.read()
-#
-#     frame_resized = rescaleframe(frame)
-#
-#     cv.imshow("video",frame_resized)
-#     #cv.imshow("vid", frame)
-#
-#     if cv.waitKey(20) & 0xFF == ord("d"):
-#         break
-#
-# capture.release()
-# cv.destroyAllWindows()
+capture = cv.VideoCapture("other_videos/cat_human_short.mp4")
+
+while True:
+    isTrue, frame = capture.read()
+
+    frame_resized = rescaleframe(frame)
+
+    cv.imshow("video",frame_resized)
+    #cv.imshow("vid", frame)
+
+    if cv.waitKey(20) & 0xFF == ord("d"):
+        break
+
+capture.release()
+cv.destroyAllWindows()
 
 
 # the image
